@@ -89,13 +89,19 @@ public class BombBehavior : MonoBehaviour
         Explode(position, direction, length - 1);
     }
 
-    private void clearDestructible(Vector2 position)
+    private void clearDestructible(Vector2 position, Vector2 direction)
     {
         Vector3Int cell = destructibleTiles.WorldToCell(position);
         TileBase tile = destructibleTiles.GetTile(cell);
 
         if (tile != null)
         {
+            ExplosionBehavior explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+            explosion.SetActive(explosion.end);
+            explosion.SetDirection(direction);
+            explosion.DestroyAfter(explosionDuration);
+            Destroy(explosion.gameObject, explosionDuration);
+
             //Instantiate(destructiblePrefab, position, Quaternion.identity);
             destructibleTiles.SetTile(cell, null);
         }
