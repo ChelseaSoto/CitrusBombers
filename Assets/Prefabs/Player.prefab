@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6123219301654629554}
   - component: {fileID: 6123219301654629553}
   - component: {fileID: 6123219301654629552}
-  - component: {fileID: 6123219301654629559}
+  - component: {fileID: 2471263340331825269}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17333ef3fa735ac43bc07e65468d3a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   rigidbody: {fileID: 6123219301654629555}
   animator: {fileID: 6123219301654629552}
+  speed: 5
 --- !u!95 &6123219301654629552
 Animator:
   serializedVersion: 5
@@ -162,7 +162,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6123219301654629559
+--- !u!114 &2471263340331825269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,15 +171,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6123219301654629558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5208d75bfe49656469b6eace66324db3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ddb9d7b22d79ae43b5131d844181966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 4460176701164186744, guid: 6f6b7802551592e47b5de8d345634953, type: 3}
   fuseTime: 3
   bombCount: 1
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 8929319264846666509, guid: c1c3315339e4f6949b1f6d5e11ea1dfd, type: 3}
   explosionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   explosionDuration: 1
   explosionRadius: 1
+  destructibleTiles: {fileID: 0}
+  destructiblePrefab: {fileID: 0}
