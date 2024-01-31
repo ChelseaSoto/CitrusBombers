@@ -9,6 +9,18 @@ public class TitleScreen : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
+    public void Title(){
+        SceneManager.LoadSceneAsync(0);
+    }
+
+    public void Controls(){
+        SceneManager.LoadSceneAsync(3);
+    }
+
+    public void Credits(){
+        SceneManager.LoadSceneAsync(4);
+    }
+
     public void QuitGame(){
         Application.Quit();
     }
