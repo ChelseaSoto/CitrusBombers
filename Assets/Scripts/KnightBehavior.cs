@@ -11,7 +11,6 @@ public class KnightBehavior : MonoBehaviour
     void Start()
     {
         ebs = GameObject.Find("knight").GetComponent<EnemyBehavior>();
-
     }
 
     void Update()

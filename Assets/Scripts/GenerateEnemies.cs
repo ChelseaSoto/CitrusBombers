@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GenerateEnemies : MonoBehaviour
 {
+    public Tilemap destructibleTiles;
 
-    [SerializeField]
+
     public GameObject goldPrefab;
-    [SerializeField]
     public GameObject redPrefab;
-    [SerializeField]
     public GameObject greenPrefab;
     
     private int goldCount, redCount, greenCount;
-    
+    private float spawnRate;
+
     public enum SceneName
     {
         level1,
@@ -52,46 +53,50 @@ public class GenerateEnemies : MonoBehaviour
         {
             for (int y = -6; y < 4; y++)
             {
-                if((x >= 0) && (x % 2 == 0 || y % 2 == 0))
+                TileBase tile = destructibleTiles.GetTile(new Vector3Int(x,y));
+
+                if (tile == null)
                 {
-                    
-                    int random = Random.Range(0,10);
-                    if (random == 1 && greenCount > 0)
+                    if ((x >= 0) && (x % 2 == 0 || y % 2 == 0))
                     {
-                        Debug.Log("Spawning Green");
-                        var spawnedEnemy = Instantiate(greenPrefab, new Vector3(x,y), Quaternion.identity);
-                        spawnedEnemy.name = $"Enemy Green {x} {y}";
-                        greenCount--;
+                        
+                        spawnRate = 0.2f;
+                        if (Random.value < spawnRate && greenCount > 0)
+                        {
+                            var spawnedEnemy = Instantiate(greenPrefab, new Vector3(x,y), Quaternion.identity);
+                            spawnedEnemy.name = $"Enemy Green {x} {y}";
+                            greenCount--;
+                        }
                     }
-                }
-                if((x >= 2) && (x % 2 == 0 || y % 2 == 0))
-                {
-                    
-                    
-                    int random = Random.Range(0,10);
-                    if (random == 1 && redCount > 0)
+                    if ((x >= 2) && (x % 2 == 0 || y % 2 == 0))
                     {
-                        Debug.Log("Spawning Red");
-                        var spawnedEnemy = Instantiate(redPrefab, new Vector3(x,y), Quaternion.identity);
-                        spawnedEnemy.name = $"Enemy Red {x} {y}";
-                        redCount--;
+                        
+                        
+                        spawnRate = 0.1f;
+                        if (Random.value < spawnRate && redCount > 0)
+                        {
+                            var spawnedEnemy = Instantiate(redPrefab, new Vector3(x,y), Quaternion.identity);
+                            spawnedEnemy.name = $"Enemy Red {x} {y}";
+                            redCount--;
+                        }
                     }
-                }
-                if ((x >= -12 || y <= 0) && (x % 2 == 0 || y % 2 == 0))
-                {
-                    
-                    int random = Random.Range(0,10);
-                    if (random == 1 && goldCount > 0)
+                    if ((x >= -12 || y <= 0) && (x % 2 == 0 || y % 2 == 0))
                     {
-                        Debug.Log("Spawning Gold");
-                        var spawnedEnemy = Instantiate(goldPrefab, new Vector3(x,y), Quaternion.identity);
-                        spawnedEnemy.name = $"Enemy Gold {x} {y}";
-                        goldCount--;
+                        
+                        spawnRate = 0.4f;
+                        if (Random.value < spawnRate && goldCount > 0)
+                        {
+                            var spawnedEnemy = Instantiate(goldPrefab, new Vector3(x,y), Quaternion.identity);
+                            spawnedEnemy.name = $"Enemy Gold {x} {y}";
+                            goldCount--;
+                        }
                     }
                 }
             }
         } 
+        if (goldCount > 0 || redCount > 0 || greenCount > 0)
+        {
+            SpawnEnemyType();
+        }
     }
-
-    
 }

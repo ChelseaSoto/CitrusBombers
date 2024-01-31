@@ -5,10 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bomb
-  - Gold
-  - Red
-  - Blue
   - Solid
+  - Enemy
+  - Explosion
+  - EnemyChaser
   layers:
   - Default
   - TransparentFX
@@ -18,8 +18,8 @@ TagManager:
   - UI
   - Stage
   - Bomb
-  - 
-  - 
+  - Explosion
+  - Enemy
   - 
   - 
   - 
