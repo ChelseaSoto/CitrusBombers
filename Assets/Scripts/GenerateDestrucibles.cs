@@ -19,7 +19,7 @@ public class GenerateDestrucibles : MonoBehaviour
                 //Make sure tile isn't start corner or an indestructible 
                 if ((x >= -13 || y <= 1) && (x % 2 != 0 || y % 2 != 0))
                 {
-                    int random = Random.Range(0,2);
+                    int random = Random.Range(0,3);
                     if (random == 1)
                     {
                         grid.SetTile(new Vector3Int(x, y, 0), castle);

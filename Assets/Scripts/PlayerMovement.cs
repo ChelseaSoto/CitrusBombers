@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-
     public Rigidbody2D rigidbody;
     public Animator animator;
-    
-
     private Vector2 movement;
+
+    public float speed = 5f;
 
     void Update()
     {

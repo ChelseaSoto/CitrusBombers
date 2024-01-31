@@ -1,55 +1,7 @@
 fileFormatVersion: 2
-guid: 22cd15ec83fed3b4db95f16835a5416d
+guid: 4fa23d0351c6b3f4284985dda5d290ff
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7679691229697230091
-    second: PlayerWhiteWalk_0
-  - first:
-      213: -4838763863378666313
-    second: PlayerWhiteWalk_1
-  - first:
-      213: 5742505401775786626
-    second: PlayerWhiteWalk_2
-  - first:
-      213: -2236306000557871359
-    second: PlayerWhiteWalk_3
-  - first:
-      213: 457474356617978424
-    second: PlayerWhiteWalk_4
-  - first:
-      213: -1955984481447874758
-    second: PlayerWhiteWalk_5
-  - first:
-      213: -2311726692851788914
-    second: PlayerWhiteWalk_6
-  - first:
-      213: 530038992663894971
-    second: PlayerWhiteWalk_7
-  - first:
-      213: 1876993990684628349
-    second: PlayerWhiteWalk_8
-  - first:
-      213: 7320275842084746454
-    second: PlayerWhiteWalk_9
-  - first:
-      213: 4794426086629081376
-    second: PlayerWhiteWalk_10
-  - first:
-      213: -7472294743960569232
-    second: PlayerWhiteWalk_11
-  - first:
-      213: 4105455241530701441
-    second: PlayerWhiteWalk_12
-  - first:
-      213: 1227387053424607353
-    second: PlayerWhiteWalk_13
-  - first:
-      213: 4228603840019539244
-    second: PlayerWhiteWalk_14
-  - first:
-      213: -9177389288040520022
-    second: PlayerWhiteWalk_15
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -86,7 +38,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -95,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,14 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,7 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -142,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -154,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -165,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerWhiteWalk_0
+      name: Knight spreadsheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 72
-        width: 16
-        height: 24
+        y: 480
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fab63de3814c6590800000000000000
-      internalID: -7679691229697230091
+      spriteID: 97e90d8db0b1f014ea2b630f037cc8bd
+      internalID: 1679344680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_1
+      name: Knight spreadsheet_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 72
-        width: 16
-        height: 24
+        x: 160
+        y: 480
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bc515337e149dcb0800000000000000
-      internalID: -4838763863378666313
+      spriteID: f3e2ab80ef42a7549b61528154abfe97
+      internalID: -759242539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_2
+      name: Knight spreadsheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 72
-        width: 16
-        height: 24
+        x: 320
+        y: 480
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28a8b91ec3a71bf40800000000000000
-      internalID: 5742505401775786626
+      spriteID: 52ace27c6f7106d44b6a0c5d4d94f6a9
+      internalID: 1591148359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_3
+      name: Knight spreadsheet_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 72
-        width: 16
-        height: 24
+        x: 480
+        y: 480
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10f6cab7a8b07f0e0800000000000000
-      internalID: -2236306000557871359
+      spriteID: 45804e8b6fdfdb04bae785beeb9441b2
+      internalID: 2050559763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_4
+      name: Knight spreadsheet_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 24
+        x: 640
+        y: 480
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,83 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 832a018e086495600800000000000000
-      internalID: 457474356617978424
+      spriteID: 8501bfe5d822eb64bbee9c352b5a0352
+      internalID: -1669727120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3f6f153a72fad4e0800000000000000
-      internalID: -1955984481447874758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWhiteWalk_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e83d7c622d81befd0800000000000000
-      internalID: -2311726692851788914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWhiteWalk_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbb56d2d7a31b5700800000000000000
-      internalID: 530038992663894971
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerWhiteWalk_8
+      name: Knight spreadsheet_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
-        width: 16
-        height: 24
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d75dc4cf61c6c0a10800000000000000
-      internalID: 1876993990684628349
+      spriteID: 1893d3eeaca1a564e867167f3dc26f3b
+      internalID: 2125936962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_9
+      name: Knight spreadsheet_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 16
-        height: 24
+        x: 160
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d4b5590818d69560800000000000000
-      internalID: 7320275842084746454
+      spriteID: c05b0fb0ddb113f4994086f66df75ef7
+      internalID: -107903598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_10
+      name: Knight spreadsheet_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 24
-        width: 16
-        height: 24
+        x: 320
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0218463bf19398240800000000000000
-      internalID: 4794426086629081376
+      spriteID: df73e7ffcf3597b40986eb60e47f2cac
+      internalID: 1818275187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_11
+      name: Knight spreadsheet_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 24
-        width: 16
-        height: 24
+        x: 480
+        y: 320
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,20 +299,146 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07a363135831d4890800000000000000
-      internalID: -7472294743960569232
+      spriteID: b1359689acd6e6b4d8ad218dc1f173b3
+      internalID: -480526992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_12
+      name: Knight spreadsheet_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a7822fd51cd1f4998bc14410e215af
+      internalID: -1961227582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7e5ad711b78cf4cb22b9ccb464615a
+      internalID: 334054560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0da86da305492429177817e6c1cb08
+      internalID: -195765530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1fd69a04e00ae4bb52a930ca2520f4
+      internalID: -100187470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e672aa7b255109a4cb2f536de750b4e3
+      internalID: 665026006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 160
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8537c43f91e1e654ab3b65f9f9e08cbe
+      internalID: -1644276748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 24
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,20 +446,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186f3b06ac189f830800000000000000
-      internalID: 4105455241530701441
+      spriteID: 2895c4fbe093bfc439d0989e9412f1cc
+      internalID: -1327866398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_13
+      name: Knight spreadsheet_16
       rect:
         serializedVersion: 2
-        x: 16
+        x: 160
         y: 0
-        width: 16
-        height: 24
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,20 +467,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9708949a50e880110800000000000000
-      internalID: 1227387053424607353
+      spriteID: e7c8b47c71b071c4988adbf63941bdd2
+      internalID: -17128777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_14
+      name: Knight spreadsheet_17
       rect:
         serializedVersion: 2
-        x: 32
+        x: 320
         y: 0
-        width: 16
-        height: 24
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,20 +488,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c25a734d9c40faa30800000000000000
-      internalID: 4228603840019539244
+      spriteID: 9739e0af283b29446916087c4256556c
+      internalID: -888171859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerWhiteWalk_15
+      name: Knight spreadsheet_18
       rect:
         serializedVersion: 2
-        x: 48
+        x: 480
         y: 0
-        width: 16
-        height: 24
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,8 +509,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa6aed0011d53a080800000000000000
-      internalID: -9177389288040520022
+      spriteID: 4af85ad2b13ea054a9315ac06e15ef26
+      internalID: 584970275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight spreadsheet_19
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e285ddce9380ae544928cfd954bca63f
+      internalID: 1025689486
       vertices: []
       indices: 
       edges: []
@@ -503,7 +539,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 3976f1244125e9846b0fbbbb060d24db
     internalID: 0
     vertices: []
     indices: 
@@ -511,22 +547,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerWhiteWalk_0: -7679691229697230091
-      PlayerWhiteWalk_1: -4838763863378666313
-      PlayerWhiteWalk_10: 4794426086629081376
-      PlayerWhiteWalk_11: -7472294743960569232
-      PlayerWhiteWalk_12: 4105455241530701441
-      PlayerWhiteWalk_13: 1227387053424607353
-      PlayerWhiteWalk_14: 4228603840019539244
-      PlayerWhiteWalk_15: -9177389288040520022
-      PlayerWhiteWalk_2: 5742505401775786626
-      PlayerWhiteWalk_3: -2236306000557871359
-      PlayerWhiteWalk_4: 457474356617978424
-      PlayerWhiteWalk_5: -1955984481447874758
-      PlayerWhiteWalk_6: -2311726692851788914
-      PlayerWhiteWalk_7: 530038992663894971
-      PlayerWhiteWalk_8: 1876993990684628349
-      PlayerWhiteWalk_9: 7320275842084746454
+      Knight spreadsheet_0: 1679344680
+      Knight spreadsheet_1: -759242539
+      Knight spreadsheet_10: 334054560
+      Knight spreadsheet_11: -195765530
+      Knight spreadsheet_12: -100187470
+      Knight spreadsheet_13: 665026006
+      Knight spreadsheet_14: -1644276748
+      Knight spreadsheet_15: -1327866398
+      Knight spreadsheet_16: -17128777
+      Knight spreadsheet_17: -888171859
+      Knight spreadsheet_18: 584970275
+      Knight spreadsheet_19: 1025689486
+      Knight spreadsheet_2: 1591148359
+      Knight spreadsheet_3: 2050559763
+      Knight spreadsheet_4: -1669727120
+      Knight spreadsheet_5: 2125936962
+      Knight spreadsheet_6: -107903598
+      Knight spreadsheet_7: 1818275187
+      Knight spreadsheet_8: -480526992
+      Knight spreadsheet_9: -1961227582
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
