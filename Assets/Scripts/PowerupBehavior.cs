@@ -20,11 +20,9 @@ public class PowerupBehavior : MonoBehaviour
                 player.GetComponent<BombBehavior1>().AddBomb();
                 break;
             case PowerupType.MoreJuice:
-                player.GetComponent<BombBehavior1>().explosionRadius++;
+                player.GetComponent<BombBehavior1>().AddRange();
                 break;
         }
-
-        StartCoroutine(PowerDown(player));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,22 +31,6 @@ public class PowerupBehavior : MonoBehaviour
         {
             OnPowerupPickup(other.gameObject);
             Destroy(gameObject);
-        }
-    }
-
-    private IEnumerator PowerDown(GameObject player)
-    {
-        switch (type)
-        {
-            case PowerupType.ExtraOrange:
-                yield return new WaitForSeconds(15f);
-                player.GetComponent<BombBehavior1>().LoseBomb();
-                break;
-            
-            case PowerupType.MoreJuice:
-                yield return new WaitForSeconds(10f);
-                player.GetComponent<BombBehavior1>().explosionRadius--;
-                break;
         }
     }
 }

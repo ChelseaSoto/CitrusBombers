@@ -7,8 +7,9 @@ public class GenerateEnemies : MonoBehaviour
     public GameObject goldPrefab;
     public GameObject redPrefab;
     public GameObject greenPrefab;
-    
-    public int total;
+
+    private GameManager gms;
+
     private int goldCount, redCount, greenCount;
     
     public enum SceneName
@@ -22,6 +23,7 @@ public class GenerateEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gms = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         goldCount = 10;
         greenCount = 2;
@@ -40,8 +42,9 @@ public class GenerateEnemies : MonoBehaviour
                 break;
         }
         
-        total = goldCount + redCount + greenCount;
+        gms.enemyCount = goldCount + redCount + greenCount;
         SpawnEnemyType();
+        
     } 
     
     void SpawnEnemyType()
