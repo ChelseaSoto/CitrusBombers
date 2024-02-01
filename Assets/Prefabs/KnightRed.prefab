@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 451592404671704224}
   - component: {fileID: 451592404671704155}
   - component: {fileID: -1359107843486488891}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: KnightRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}

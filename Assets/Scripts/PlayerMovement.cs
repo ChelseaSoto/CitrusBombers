@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     private Vector2 movement;
 
+    public int lives = 3;
     public float speed = 5f;
 
     void Update()
@@ -41,5 +42,32 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + movement * speed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Damage Dealer"))
+        {
+            lives--;
+            
+            if (lives <= 0)
+            {
+                StartCoroutine(DeathSequence());
+            }
+        }
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        GetComponent<BombBehavior>().enabled = false;
+        enabled = false;
+
+        animator.SetFloat("Horizontal", rigidbody.position.x);
+        animator.SetFloat("Vertical", rigidbody.position.y);
+        animator.SetFloat("Speed", 0);
+        animator.SetInteger("Lives", lives);
+
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("Dead", true);
     }
 }

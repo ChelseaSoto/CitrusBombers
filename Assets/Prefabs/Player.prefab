@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6123219301654629558
+--- !u!1 &7275109612150998543
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6123219301654629565}
-  - component: {fileID: 6123219301654629564}
-  - component: {fileID: 6123219301654629555}
-  - component: {fileID: 6123219301654629554}
-  - component: {fileID: 6123219301654629553}
-  - component: {fileID: 6123219301654629552}
-  - component: {fileID: 2471263340331825269}
+  - component: {fileID: 7275109612150998534}
+  - component: {fileID: 7275109612150998529}
+  - component: {fileID: 7275109612150998528}
+  - component: {fileID: 7275109612150998531}
+  - component: {fileID: 7275109612150998530}
+  - component: {fileID: 7275109612150998541}
+  - component: {fileID: 7275109612150998540}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -22,13 +22,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6123219301654629565
+--- !u!4 &7275109612150998534
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
+  m_GameObject: {fileID: 7275109612150998543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.95, y: 4.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,13 +37,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6123219301654629564
+--- !u!212 &7275109612150998529
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
+  m_GameObject: {fileID: 7275109612150998543}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1278716230, guid: d566ff34c9bedb2479da1e8372c2329b, type: 3}
+  m_Sprite: {fileID: -1561843332, guid: e3b8a4c9e9d576e4098aa50804bddc4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,14 +89,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6123219301654629555
+--- !u!50 &7275109612150998528
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
+  m_GameObject: {fileID: 7275109612150998543}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -110,13 +110,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &6123219301654629554
+--- !u!58 &7275109612150998531
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
+  m_GameObject: {fileID: 7275109612150998543}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 2923922e47a32c74bafce410cda5aa1a, type: 2}
@@ -126,32 +126,56 @@ CircleCollider2D:
   m_Offset: {x: -0.056467533, y: -0.3447467}
   serializedVersion: 2
   m_Radius: 0.47084296
---- !u!114 &6123219301654629553
+--- !u!114 &7275109612150998530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
+  m_GameObject: {fileID: 7275109612150998543}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17333ef3fa735ac43bc07e65468d3a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 6123219301654629555}
-  animator: {fileID: 6123219301654629552}
+  rigidbody: {fileID: 7275109612150998528}
+  animator: {fileID: 7275109612150998540}
+  lives: 3
   speed: 5
---- !u!95 &6123219301654629552
+--- !u!114 &7275109612150998541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275109612150998543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ddb9d7b22d79ae43b5131d844181966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 4460176701164186744, guid: 6f6b7802551592e47b5de8d345634953, type: 3}
+  fuseTime: 3
+  bombCount: 1
+  explosionPrefab: {fileID: 5832786357487126916, guid: c1c3315339e4f6949b1f6d5e11ea1dfd, type: 3}
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  explosionDuration: 1
+  explosionRadius: 1
+  destructibleTiles: {fileID: 0}
+  destructiblePrefab: {fileID: 0}
+--- !u!95 &7275109612150998540
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
+  m_GameObject: {fileID: 7275109612150998543}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f7fd75cdde2a0c9418cb0a458dc6dd84, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6f83f7c406f497e4e9744d3455eb20a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -162,26 +186,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2471263340331825269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123219301654629558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ddb9d7b22d79ae43b5131d844181966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 4460176701164186744, guid: 6f6b7802551592e47b5de8d345634953, type: 3}
-  fuseTime: 3
-  bombCount: 1
-  explosionPrefab: {fileID: 8929319264846666509, guid: c1c3315339e4f6949b1f6d5e11ea1dfd, type: 3}
-  explosionLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  explosionDuration: 1
-  explosionRadius: 1
-  destructibleTiles: {fileID: 0}
-  destructiblePrefab: {fileID: 0}
