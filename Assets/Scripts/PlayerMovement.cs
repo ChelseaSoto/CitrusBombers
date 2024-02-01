@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rigidbody;
     public Animator animator;
-    private Vector2 movement;
+    public Vector2 movement;
 
     public int lives = 3;
     public float speed = 5f;
