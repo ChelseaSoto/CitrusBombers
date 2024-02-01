@@ -117,11 +117,39 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount++;
         bombsRemaining = bombCount;
+        StartCoroutine(PowerDown(0));
     }
 
     public void LoseBomb()
     {
         bombCount--;
         bombsRemaining = bombCount;
+    }
+
+    public void AddRange()
+    {
+        explosionRadius++;
+        StartCoroutine(PowerDown(1));
+    }
+
+    public void LoseRange()
+    {
+        explosionRadius--;
+    }
+
+    public IEnumerator PowerDown(int type)
+    {   
+        switch (type)
+        {
+            case 0:
+                yield return new WaitForSeconds(8f);
+                LoseBomb();
+                break;
+
+            case 1:
+                yield return new WaitForSeconds(5f);
+                LoseRange();
+                break;
+        }
     }
 }

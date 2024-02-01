@@ -14,12 +14,11 @@ public class EnemyBehavior : MonoBehaviour
     public float speed = 4f;
     private float speedStashed;
     private bool changed = false;
-    
-    public int direction = 5;
 
     void Start()
     {   
         speedStashed = speed;
+
         NewDirection();
 
         StartCoroutine(ChangeDirectionInterval());
@@ -103,26 +102,22 @@ public class EnemyBehavior : MonoBehaviour
         {
             if (CheckAxis(position, Vector2.right))
             {
-                direction = 0;
-                SetDirection(direction);
+                SetDirection(0);
             }
             else if (CheckAxis(position, Vector2.left))
             {
-                direction = 2;
-                SetDirection(direction);
+                SetDirection(2);
             }
         }
         if (movement.y == 0)
         {
             if (CheckAxis(position, Vector2.up))
             {
-                direction = 1;
-                SetDirection(direction);
+                SetDirection(1);
             }
             else if (CheckAxis(position, Vector2.down))
             {
-                direction = 3;
-                SetDirection(direction);
+                SetDirection(3);
             }
         }
     }
@@ -139,7 +134,7 @@ public class EnemyBehavior : MonoBehaviour
         return true;
     }
 
-    IEnumerator ChangeDirectionInterval()
+    private IEnumerator ChangeDirectionInterval()
     {
         changed = false;
 
