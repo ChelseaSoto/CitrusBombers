@@ -8,7 +8,10 @@ TagManager:
   - Solid
   - Enemy
   - Explosion
+<<<<<<< Updated upstream
   - EnemyChaser
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,13 @@ TagManager:
   - UI
   - Stage
   - Bomb
+<<<<<<< Updated upstream
   - Explosion
   - Enemy
+=======
+  - Damage Dealer
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 

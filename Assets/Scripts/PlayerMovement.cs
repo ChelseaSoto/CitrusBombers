@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+<<<<<<< Updated upstream
         if (other.gameObject.layer == LayerMask.NameToLayer("Explosion") || other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             lives--;
@@ -54,11 +55,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(DeathSequence());
             }
+=======
+        if (other.gameObject.layer == LayerMask.NameToLayer("Damage Dealer"))
+        {
+            lives--;
+        }
+
+        if (lives <= 0)
+        {
+            StartCoroutine(DeathSequence());
+>>>>>>> Stashed changes
         }
     }
 
     private IEnumerator DeathSequence()
     {
+<<<<<<< Updated upstream
         GetComponent<BombBehavior>().enabled = false;
         enabled = false;
 
@@ -69,5 +81,16 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Dead", true);
+=======
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", 0);
+        animator.SetFloat("Speed", 0);
+        animator.SetInteger("Lives", lives);
+
+        yield return new WaitForSeconds(.01f);
+
+        animator.SetBool("Dead", true);
+        enabled = false;
+>>>>>>> Stashed changes
     }
 }
