@@ -19,7 +19,7 @@ public class BombBehavior1: MonoBehaviour
 
     [Header("Destructible")]
     public Tilemap destructibleTiles;
-    public DestructibleBehavior destructiblePrefab;
+    public PowerupSpawnBehavior spawnerPrefab;
 
 
     private void OnEnable()
@@ -64,7 +64,13 @@ public class BombBehavior1: MonoBehaviour
         bombsRemaining++;
     }
 
-    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
+        {
+            other.isTrigger = false;
+        }
+    }
 
     private void Explode(Vector2 position, Vector2 direction, int length)
     {
@@ -102,7 +108,7 @@ public class BombBehavior1: MonoBehaviour
             explosion.DestroyAfter(explosionDuration);
             Destroy(explosion.gameObject, explosionDuration);
 
-            //Instantiate(destructiblePrefab, position, Quaternion.identity);
+            Instantiate(spawnerPrefab, position, Quaternion.identity);
             destructibleTiles.SetTile(cell, null);
         }
     }
@@ -113,11 +119,9 @@ public class BombBehavior1: MonoBehaviour
         bombsRemaining = bombCount;
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void LoseBomb()
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
-        {
-            other.isTrigger = false;
-        }
+        bombCount--;
+        bombsRemaining = bombCount;
     }
 }

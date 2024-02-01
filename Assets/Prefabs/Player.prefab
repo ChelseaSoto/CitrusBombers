@@ -164,7 +164,7 @@ MonoBehaviour:
   explosionDuration: 1
   explosionRadius: 1
   destructibleTiles: {fileID: 0}
-  destructiblePrefab: {fileID: 0}
+  spawnerPrefab: {fileID: 4979469988015486748, guid: 619d2487f9e2be044921b9939b174e63, type: 3}
 --- !u!95 &7275109612150998540
 Animator:
   serializedVersion: 5
