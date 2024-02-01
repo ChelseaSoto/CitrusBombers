@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class GenerateEnemies : MonoBehaviour
 {
-
-    [SerializeField]
     public GameObject goldPrefab;
-    [SerializeField]
     public GameObject redPrefab;
-    [SerializeField]
     public GameObject greenPrefab;
     
+    public int total;
     private int goldCount, redCount, greenCount;
     
     public enum SceneName
@@ -43,6 +40,7 @@ public class GenerateEnemies : MonoBehaviour
                 break;
         }
         
+        total = goldCount + redCount + greenCount;
         SpawnEnemyType();
     } 
     
@@ -58,7 +56,6 @@ public class GenerateEnemies : MonoBehaviour
                     int random = Random.Range(0,10);
                     if (random == 1 && greenCount > 0)
                     {
-                        Debug.Log("Spawning Green");
                         var spawnedEnemy = Instantiate(greenPrefab, new Vector3(x,y), Quaternion.identity);
                         spawnedEnemy.name = $"Enemy Green {x} {y}";
                         greenCount--;
@@ -71,7 +68,6 @@ public class GenerateEnemies : MonoBehaviour
                     int random = Random.Range(0,10);
                     if (random == 1 && redCount > 0)
                     {
-                        Debug.Log("Spawning Red");
                         var spawnedEnemy = Instantiate(redPrefab, new Vector3(x,y), Quaternion.identity);
                         spawnedEnemy.name = $"Enemy Red {x} {y}";
                         redCount--;
@@ -83,7 +79,6 @@ public class GenerateEnemies : MonoBehaviour
                     int random = Random.Range(0,10);
                     if (random == 1 && goldCount > 0)
                     {
-                        Debug.Log("Spawning Gold");
                         var spawnedEnemy = Instantiate(goldPrefab, new Vector3(x,y), Quaternion.identity);
                         spawnedEnemy.name = $"Enemy Gold {x} {y}";
                         goldCount--;
@@ -91,7 +86,9 @@ public class GenerateEnemies : MonoBehaviour
                 }
             }
         } 
+        if (redCount > 0 || greenCount > 0 || goldCount > 0)
+        {
+            SpawnEnemyType();
+        }
     }
-
-    
 }
