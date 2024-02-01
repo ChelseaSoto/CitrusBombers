@@ -10,6 +10,7 @@ TagManager:
   - Blue
   - Solid
   - Enemy
+  - Explosion
   layers:
   - Default
   - TransparentFX

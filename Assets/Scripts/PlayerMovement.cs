@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DeathSequence()
     {
-        GetComponent<BombBehavior>().enabled = false;
+        GetComponent<BombBehavior1>().enabled = false;
         enabled = false;
 
         animator.SetFloat("Horizontal", rigidbody.position.x);
