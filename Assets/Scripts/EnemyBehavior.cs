@@ -50,6 +50,11 @@ public class EnemyBehavior : MonoBehaviour
             movement.x = -movement.x;
             movement.y = -movement.y;
         }
+
+        if (other.tag == "Explosion")
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void SetDirection(int direction)

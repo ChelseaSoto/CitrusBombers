@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5511727074605016313}
   - component: {fileID: 5511727074605016066}
   - component: {fileID: -3065349946121254987}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: KnightGold
   m_TagString: Enemy
   m_Icon: {fileID: 0}
