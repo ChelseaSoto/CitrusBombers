@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1359107843486488891}
   m_Layer: 8
   m_Name: KnightRed
-  m_TagString: Enemy
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,5 +174,9 @@ MonoBehaviour:
   knightLayerMask:
     serializedVersion: 2
     m_Bits: 64
+<<<<<<< Updated upstream
   speed: 4
   type: 0
+=======
+  speed: 5
+>>>>>>> Stashed changes

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3065349946121254987}
   m_Layer: 8
   m_Name: KnightGold
-  m_TagString: Enemy
+  m_TagString: Gold
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,4 +174,4 @@ MonoBehaviour:
   knightLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  speed: 4
+  speed: 2.5
