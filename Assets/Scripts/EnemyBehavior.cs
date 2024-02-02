@@ -15,8 +15,11 @@ public class EnemyBehavior : MonoBehaviour
     private float speedStashed;
     private bool changed = false;
 
+    private GameManager gms;
+
     void Start()
     {   
+        gms = GameObject.Find("GameManager").GetComponent<GameManager>();
         speedStashed = speed;
 
         NewDirection();
@@ -52,6 +55,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (other.tag == "Explosion")
         {
+            gms.enemyCount--;
             Destroy(gameObject);
         }
     }
@@ -111,13 +115,14 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (movement.y == 0)
         {
-            if (CheckAxis(position, Vector2.up))
-            {
-                SetDirection(1);
-            }
-            else if (CheckAxis(position, Vector2.down))
+            
+            if (CheckAxis(position, Vector2.down))
             {
                 SetDirection(3);
+            }
+            else if (CheckAxis(position, Vector2.up))
+            {
+                SetDirection(1);
             }
         }
     }
@@ -138,7 +143,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         changed = false;
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(Random.Range(5f, 15f));
 
         while (!changed)
         {

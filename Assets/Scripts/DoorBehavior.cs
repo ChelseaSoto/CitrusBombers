@@ -23,15 +23,17 @@ public class DoorBehavior : MonoBehaviour
         collider = GetComponent<Collider2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {   
+    void Update()
+    {
         remaining = gms.enemyCount;
-        Debug.Log("Remaining Enemies:" + remaining);
-
         if (remaining == 0)
         {
             collider.enabled = true;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {   
         
         if(other.tag == "Player")
         {
@@ -39,12 +41,12 @@ public class DoorBehavior : MonoBehaviour
             {
                 case SceneName.level1:
                     Debug.Log("Going to level 2");
-                    SceneManager.LoadScene("level2");
+                    SceneManager.LoadSceneAsync("level2");
                     break;
                 
                 case SceneName.level2:
                     Debug.Log("Going to Win Screen");
-                    SceneManager.LoadScene("Win Screen");
+                    SceneManager.LoadSceneAsync("Win Screen");
                     break;
             } 
         }
