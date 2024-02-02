@@ -115,13 +115,14 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (movement.y == 0)
         {
-            if (CheckAxis(position, Vector2.up))
-            {
-                SetDirection(1);
-            }
-            else if (CheckAxis(position, Vector2.down))
+            
+            if (CheckAxis(position, Vector2.down))
             {
                 SetDirection(3);
+            }
+            else if (CheckAxis(position, Vector2.up))
+            {
+                SetDirection(1);
             }
         }
     }
