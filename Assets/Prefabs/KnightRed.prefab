@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1359107843486488891}
   m_Layer: 8
   m_Name: KnightRed
-  m_TagString: Enemy
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &451592404671704155
 Rigidbody2D:
@@ -174,4 +174,5 @@ MonoBehaviour:
   knightLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  speed: 4
+  speed: 6
+  type: 0
