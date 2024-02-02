@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 32720881}
   - component: {fileID: 32720880}
   - component: {fileID: 32720879}
+  - component: {fileID: 32720883}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -171,10 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -224,6 +225,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &32720883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32720878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6cbb298063b514458e40e0b8a2ad8a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &112512460
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -448}
+  m_AnchoredPosition: {x: 0, y: -430}
   m_SizeDelta: {x: 420, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1292174387
@@ -526,7 +539,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1292174388}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 32720883}
+        m_TargetAssemblyTypeName: ChangeScenes, Assembly-CSharp
+        m_MethodName: Title
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1292174388
 MonoBehaviour:
   m_ObjectHideFlags: 0
