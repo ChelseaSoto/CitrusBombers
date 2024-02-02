@@ -15,10 +15,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("UI")]
     public static int lives = 3;
     public TextMeshProUGUI livesTxt;
+    
     void start()
     {
         lives = 3;
     }
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");

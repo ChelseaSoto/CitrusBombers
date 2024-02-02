@@ -109,6 +109,7 @@ public class BombBehavior1: MonoBehaviour
 
         if (tile != null)
         {
+            AddScore(2);
             ExplosionBehavior explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
             explosion.SetActive(explosion.end);
             explosion.SetDirection(direction);
@@ -162,5 +163,11 @@ public class BombBehavior1: MonoBehaviour
                 LoseRange();
                 break;
         }
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreTxt.text = string.Format("" + score);
     }
 }

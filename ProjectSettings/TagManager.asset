@@ -7,10 +7,10 @@ TagManager:
   - Bomb
   - Gold
   - Red
-  - Blue
   - Solid
   - Enemy
   - Explosion
+  - Green
   layers:
   - Default
   - TransparentFX

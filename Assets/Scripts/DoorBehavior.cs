@@ -40,11 +40,13 @@ public class DoorBehavior : MonoBehaviour
            switch(name)
             {
                 case SceneName.level1:
+                    GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(1000);
                     Debug.Log("Going to level 2");
                     SceneManager.LoadSceneAsync("level2");
                     break;
                 
                 case SceneName.level2:
+                    GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(1000);
                     Debug.Log("Going to Win Screen");
                     SceneManager.LoadSceneAsync("Win Screen");
                     break;

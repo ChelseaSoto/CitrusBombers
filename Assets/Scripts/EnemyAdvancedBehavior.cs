@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyAdvancedBehavior : MonoBehaviour
 {   
     public Rigidbody2D rigidbody;
     public Animator animator;
@@ -15,16 +15,8 @@ public class EnemyBehavior : MonoBehaviour
     private float speedStashed;
     private bool changed = false;
 
-    public enum EnemyType
-    {
-        red,
-        green,
-        gold,
-    }
-
-    public EnemyType type;
-
     private GameManager gms;
+    public GameObject player;
 
     void Start()
     {   
@@ -41,6 +33,13 @@ public class EnemyBehavior : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", speed);
+
+        //Time to chase
+        if (CanSeePlayer())
+        {
+            StopCoroutine(ChangeDirectionInterval());
+            ChasePlayer();
+        }
     }
 
     void FixedUpdate()
@@ -65,7 +64,6 @@ public class EnemyBehavior : MonoBehaviour
         if (other.tag == "Explosion")
         {
             gms.enemyCount--;
-            givePoints();
             Destroy(gameObject);
         }
     }
@@ -169,19 +167,33 @@ public class EnemyBehavior : MonoBehaviour
         StartCoroutine(ChangeDirectionInterval());
     }
 
-    private void givePoints()
+    private bool CanSeePlayer()
     {
-        switch (type)
+        return false;
+    } 
+
+    private void ChasePlayer()
+    {
+        if (Mathf.Round(rigidbody.position.x) == Mathf.Round(player.GetComponent<Rigidbody2D>().position.x) && Mathf.Round(rigidbody.position.y) > Mathf.Round(player.GetComponent<Rigidbody2D>().position.y))
         {
-            case EnemyType.gold:
-                GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(5);
-                break;
-            case EnemyType.green:
-                GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(10);
-                break;
-            case EnemyType.red:
-                GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(50);
-                break;
+            //move down
+            SetDirection(3);
+        }
+        if (Mathf.Round(rigidbody.position.x) == Mathf.Round(player.GetComponent<Rigidbody2D>().position.x) && Mathf.Round(rigidbody.position.y) < Mathf.Round(player.GetComponent<Rigidbody2D>().position.y))
+        {
+            //move up
+            SetDirection(1);
+        }
+        if (Mathf.Round(rigidbody.position.y) == Mathf.Round(player.GetComponent<Rigidbody2D>().position.y) && Mathf.Round(rigidbody.position.x) > Mathf.Round(player.GetComponent<Rigidbody2D>().position.x))
+        {
+            //move left
+            SetDirection(2);
+        }
+        if (Mathf.Round(rigidbody.position.y) == Mathf.Round(player.GetComponent<Rigidbody2D>().position.y) && Mathf.Round(rigidbody.position.x) < Mathf.Round(player.GetComponent<Rigidbody2D>().position.x))
+        {
+            //move right
+            SetDirection(0);
         }
     }
 }
+
