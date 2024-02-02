@@ -13,10 +13,6 @@ public class GenerateDestrucibles : MonoBehaviour
     public Tilemap ground;
     public Tile umbrella;
 
-    [Header("Indestructibles")]
-    public Tilemap sand;
-    public Tile umbrella;
-
     [Header("Door")]
     public GameObject doorPrefab;
     private int count = 1;
@@ -24,7 +20,6 @@ public class GenerateDestrucibles : MonoBehaviour
     void Start()
     {
         //For each tile on game board
-<<<<<<< Updated upstream
         for (int x = -14; x < 15; x++)
         {
             for (int y = -6; y < 5; y++)
@@ -43,27 +38,6 @@ public class GenerateDestrucibles : MonoBehaviour
                             grid.SetTile(position, castle);
                         }
                         
-=======
-        for (int x = -13; x < 13; x++)
-        {
-            for (int y = -5; y < 5; y++)
-            {   
-                //Make sure tile isn't start corner or an indestructible 
-                if ((x >= -13 || y <= 1))
-                {
-                    Vector3Int position = new Vector3Int(x,y);
-                    TileBase tile = sand.GetTile(position);
-                    
-                    if (tile == umbrella)
-                    {
-                        
-                        int random = Random.Range(0,2);
-                        if (random == random)
-                        {
-                            Debug.Log("No umbrella at "+x+" "+y);
-                            grid.SetTile(new Vector3Int(x,y), castle);
-                        }
->>>>>>> Stashed changes
                     }
                     
                 }
@@ -83,15 +57,9 @@ public class GenerateDestrucibles : MonoBehaviour
             {   
                 int random = Random.Range(0,3);
                 if(count > 0 && random == 1)
-<<<<<<< Updated upstream
                 {   
                     Vector3Int cell = grid.WorldToCell(new Vector3Int(x,y));
                     TileBase tile = grid.GetTile(cell);
-=======
-                {
-                    Vector3Int position = new Vector3Int(x,y);
-                    TileBase tile = grid.GetTile(position);
->>>>>>> Stashed changes
 
                     if (tile == castle)
                     {
