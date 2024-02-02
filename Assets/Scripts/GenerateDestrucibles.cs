@@ -5,8 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class GenerateDestrucibles : MonoBehaviour
 {
+    [Header("Destructibles")]
     public Tilemap grid;
     public Tile castle; 
+
+    [Header("Door")]
     public GameObject doorPrefab;
     private int count = 1;
 

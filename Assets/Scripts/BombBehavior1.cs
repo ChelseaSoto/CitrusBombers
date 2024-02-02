@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class BombBehavior1: MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class BombBehavior1: MonoBehaviour
     [Header("Destructible")]
     public Tilemap destructibleTiles;
     public PowerupSpawnBehavior spawnerPrefab;
+
+    [Header("UI")]
+    public static int score;
+    public TextMeshProUGUI scoreTxt;
+    public TextMeshProUGUI rangeTxt;
+    public TextMeshProUGUI countTxt;
 
 
     private void OnEnable()
@@ -117,6 +124,7 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount++;
         bombsRemaining = bombCount;
+        countTxt.text = string.Format("" + bombCount);
         StartCoroutine(PowerDown(0));
     }
 
@@ -124,17 +132,20 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount--;
         bombsRemaining = bombCount;
+        countTxt.text = string.Format("" + bombCount);
     }
 
     public void AddRange()
     {
         explosionRadius++;
+        rangeTxt.text = string.Format("" + explosionRadius);
         StartCoroutine(PowerDown(1));
     }
 
     public void LoseRange()
     {
         explosionRadius--;
+        rangeTxt.text = string.Format("" + explosionRadius);
     }
 
     public IEnumerator PowerDown(int type)
