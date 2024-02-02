@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [Header("Player")]
     public Rigidbody2D rigidbody;
     public Animator animator;
-    private Vector2 movement;
-
-    public int lives = 3;
+    public Vector2 movement;
     public float speed = 5f;
+
+    [Header("UI")]
+    public static int lives = 3;
+    public TextMeshProUGUI livesTxt;
 
     void Update()
     {
@@ -36,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        
     }
 
     void FixedUpdate()
@@ -49,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Damage Dealer"))
         {
             lives--;
+            livesTxt.text = string.Format("" + lives);
             
             if (lives <= 0)
             {
