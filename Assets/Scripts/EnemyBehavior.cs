@@ -15,6 +15,15 @@ public class EnemyBehavior : MonoBehaviour
     private float speedStashed;
     private bool changed = false;
 
+    public enum EnemyType
+    {
+        red,
+        green,
+        gold,
+    }
+
+    public EnemyType type;
+
     private GameManager gms;
 
     void Start()
@@ -56,6 +65,7 @@ public class EnemyBehavior : MonoBehaviour
         if (other.tag == "Explosion")
         {
             gms.enemyCount--;
+            givePoints();
             Destroy(gameObject);
         }
     }
@@ -155,5 +165,21 @@ public class EnemyBehavior : MonoBehaviour
         }
 
         StartCoroutine(ChangeDirectionInterval());
+    }
+
+    private void givePoints()
+    {
+        switch (type)
+        {
+            case EnemyType.gold:
+                GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(5);
+                break;
+            case EnemyType.green:
+                GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(10);
+                break;
+            case EnemyType.red:
+                GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(50);
+                break;
+        }
     }
 }
