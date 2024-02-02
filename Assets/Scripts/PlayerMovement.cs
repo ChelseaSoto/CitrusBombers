@@ -15,10 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("UI")]
     public static int lives = 3;
     public TextMeshProUGUI livesTxt;
-    void start()
-    {
-        lives = 3;
-    }
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -56,11 +53,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Damage Dealer"))
         {
             lives--;
-            if (lives <= 0)
-            {
-                lives = 0;
-            }
-
             livesTxt.text = string.Format("" + lives);
             
             if (lives <= 0)
@@ -70,12 +62,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public IEnumerator DeathSequence()
+    private IEnumerator DeathSequence()
     {
         GetComponent<BombBehavior1>().enabled = false;
         enabled = false;
-        
-        lives = 0; 
+
         animator.SetFloat("Horizontal", rigidbody.position.x);
         animator.SetFloat("Vertical", rigidbody.position.y);
         animator.SetFloat("Speed", 0);
@@ -83,9 +74,5 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Dead", true);
-
-        yield return new WaitForSeconds(1.2f);
-        gameObject.SetActive(false);
-        GameObject.Find("GameManager").GetComponent<GameManager>().CheckLoseState();
     }
 }
