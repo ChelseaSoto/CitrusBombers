@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if(timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
