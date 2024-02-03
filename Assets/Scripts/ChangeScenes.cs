@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,39 +11,40 @@ public class ChangeScenes : MonoBehaviour
     }
 
     public void PlayGame(){
-        PlayButtonClickSound();
-        SceneManager.LoadSceneAsync(1);
+        StartCoroutine(PlayAndLoad(1));
     }
 
     public void Title(){
-        PlayButtonClickSound();
-        SceneManager.LoadSceneAsync(0);
+        StartCoroutine(PlayAndLoad(0));
     }
 
     public void Controls(){
-        PlayButtonClickSound();
-        SceneManager.LoadSceneAsync(3);
+        StartCoroutine(PlayAndLoad(3));
     }
 
     public void Credits(){
-        PlayButtonClickSound();
-        SceneManager.LoadSceneAsync(4);
+        StartCoroutine(PlayAndLoad(4));
     }
 
     public void QuitGame(){
+        StartCoroutine(PlayAndQuit());
+    }
+
+    private IEnumerator PlayAndLoad(int sceneIndex){
         PlayButtonClickSound();
+        yield return new WaitForSecondsRealtime(buttonClickSound.clip.length);
+        SceneManager.LoadSceneAsync(sceneIndex);
+    }
+
+    private IEnumerator PlayAndQuit(){
+        PlayButtonClickSound();
+        yield return new WaitForSecondsRealtime(buttonClickSound.clip.length);
         Application.Quit();
     }
 
     private void PlayButtonClickSound(){
-        if (buttonClickSound != null)
-        {
+        if (buttonClickSound != null){
             buttonClickSound.Play();
         }
-    }
-
-    private IEnumerator LoadSceneAsync(int sceneIndex){
-        yield return new WaitForSeconds(buttonClickSound.clip.length);
-        SceneManager.LoadSceneAsync(sceneIndex);
     }
 }
