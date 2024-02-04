@@ -8,35 +8,38 @@ public class GameManager : MonoBehaviour
 {
 
     public int enemyCount;
+    public bool timerOn;
 
     public GameObject player;
 
-    public static float timeRemaining = 300f;
+    public static float timeRemaining;
     public TextMeshProUGUI timerTxt;
 
     void Start()
     {
         enemyCount = 1;
+        timerOn = true;
+        timeRemaining = 300f;
+
     }
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (timerOn)
         {
-            Application.Quit();
+            if(timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                updateTimer(timeRemaining);
+            }
+            else
+            {
+                timeRemaining = 0;
+                timerOn = false;
+                StartCoroutine(player.GetComponent<PlayerMovement>().DeathSequence());
+            } 
         }
-
-        if(timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            updateTimer(timeRemaining);
-        }
-        else
-        {
-            timeRemaining = 0;
-            StartCoroutine(player.GetComponent<PlayerMovement>().DeathSequence());
-        }  
+         
     }
 
     public void CheckLoseState()
