@@ -89,6 +89,7 @@ public class BombBehavior1: MonoBehaviour
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask))
         {
             clearDestructible(position, direction);
+            return;
         }
         
         ExplosionBehavior explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
@@ -108,6 +109,11 @@ public class BombBehavior1: MonoBehaviour
         if (tile != null)
         {
             AddScore(2);
+            ExplosionBehavior explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+            explosion.SetActive(explosion.end);
+            explosion.SetDirection(direction);
+            explosion.DestroyAfter(explosionDuration);
+            Destroy(explosion.gameObject, explosionDuration);
             Instantiate(spawnerPrefab, position, Quaternion.identity);
             destructibleTiles.SetTile(cell, null);
         }

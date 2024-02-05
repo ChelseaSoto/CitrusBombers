@@ -7,11 +7,12 @@ public class EnemyBehavior : MonoBehaviour
 {   
     public Rigidbody2D rigidbody;
     public Animator animator;
-    public Vector2 movement;
+    public Vector3 movement;
     private Vector2 position;
     public LayerMask knightLayerMask;
+    public Transform castPoint;
 
-    public float speed = 4f;
+    public float speed = 0f;
     private float speedStashed;
     private bool changed = false;
 
@@ -21,31 +22,37 @@ public class EnemyBehavior : MonoBehaviour
         green,
         gold,
     }
-
     public EnemyType type;
 
     private GameManager gms;
 
     void Start()
-    {   
-        gms = GameObject.Find("GameManager").GetComponent<GameManager>();
+    {
         speedStashed = speed;
+        gms = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+        speed = 0;
+        movement = Vector3.zero;
 
+        Debug.Log("Stashed speed: "+speedStashed+" Current speed is: "+speed);
+        
         NewDirection();
-
         StartCoroutine(ChangeDirectionInterval());
     }
 
     void Update()
     {
+        transform.Translate(movement * speed * Time.deltaTime);
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", speed);
-    }
 
-    void FixedUpdate()
-    {
-        rigidbody.MovePosition(rigidbody.position + movement * speed * Time.fixedDeltaTime);
+        if (gameObject.tag == "Red")
+        {
+            CanSeePlayer();
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -68,23 +75,76 @@ public class EnemyBehavior : MonoBehaviour
             givePoints();
             Destroy(gameObject);
         }
-    }
+    }   
 
-    private void SetDirection(int direction)
+    private void NewDirection()
     {
-        position = rigidbody.position;
+        Debug.Log("Current location: "+transform.position.x+", "+transform.position.y);
 
-        speed = 0;
-        movement = Vector2.zero;
-
-        if (position.x % 1 >= 0.0001f && transform.position.y % 1 >= 0.0001f)
+        if (transform.position.x % 1 >= 0.0001f || transform.position.y % 1 >= 0.0001f)
         {
-            speed = speedStashed;
+            changed = false;
             return;
         }
 
+        transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
+        Debug.Log("Current location: "+transform.position.x+", "+transform.position.y);
+        Vector3 current = transform.position;
+        Debug.Log("Current location: "+current.x+", "+current.y);
+
+        if (movement.x == 0)
+        {
+            if (CheckAxis(current, Vector3.right))
+            {
+                StartCoroutine(SetDirection(0));
+                Debug.Log("Going right");
+                return;
+            }
+            else if (CheckAxis(current, Vector3.left))
+            {
+                StartCoroutine(SetDirection(2));
+                Debug.Log("Going left");
+                return;
+            }
+        }
+        if (movement.y == 0)
+        {
+            
+            if (CheckAxis(current, Vector3.down))
+            {
+                StartCoroutine(SetDirection(3));
+                Debug.Log("Going down");
+                return;
+            }
+            else if (CheckAxis(current, Vector3.up))
+            {
+                StartCoroutine(SetDirection(1));
+                Debug.Log("Going up");
+                return;
+            }
+        }
+
+        StartCoroutine(SetDirection(1));  
+    }
+
+    private bool CheckAxis(Vector3 location, Vector3 direction)
+    {   
+        location += direction;
+
+        if (Physics2D.OverlapBox(location, Vector2.one / 2f, 0f, knightLayerMask))
+        {
+            Debug.Log("Obstacle detected at: "+location);
+            return false;
+        }
+        
+        return true;
+    }
+
+    private IEnumerator SetDirection(int direction)
+    {   
         changed = true;
 
+        Debug.Log("Assigning direction");
         switch (direction)
         {
             case 0:
@@ -105,50 +165,9 @@ public class EnemyBehavior : MonoBehaviour
                 break;
         }
         
+        yield return new WaitForSeconds(0.3f);
+        Debug.Log("Moving Now");
         speed = speedStashed;
-    }
-
-    private void NewDirection()
-    {   
-        position = rigidbody.position;
-
-        if (movement.x == 0)
-        {
-            if (CheckAxis(position, Vector2.right))
-            {
-                SetDirection(0);
-            }
-            else if (CheckAxis(position, Vector2.left))
-            {
-                SetDirection(2);
-            }
-        }
-        if (movement.y == 0)
-        {
-            
-            if (CheckAxis(position, Vector2.down))
-            {
-                SetDirection(3);
-            }
-            else if (CheckAxis(position, Vector2.up))
-            {
-                SetDirection(1);
-            }
-        }
-
-        //SetDirection(2);
-    }
-
-    private bool CheckAxis(Vector2 location, Vector2 direction)
-    {   
-        location += direction;
-
-        if (Physics2D.OverlapBox(location, Vector2.one / 2f, 0f, knightLayerMask))
-        {
-            return false;
-        }
-        
-        return true;
     }
 
     private IEnumerator ChangeDirectionInterval()
@@ -159,10 +178,12 @@ public class EnemyBehavior : MonoBehaviour
 
         while (!changed)
         {
-            if(!changed)
+            if(transform.position.x % 1 == 0 || transform.position.y % 1 == 0 )
             {
+                speed = 0;
                 NewDirection();
             }
+            speed = speedStashed;
             yield return new WaitForSeconds(0.4f);
         }
 
@@ -183,5 +204,12 @@ public class EnemyBehavior : MonoBehaviour
                 GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(50);
                 break;
         }
+    }
+
+    private void CanSeePlayer()
+    {
+        bool val = false;
+
+        Vector2 rightView = castPoint.position + Vector3.right * 30;
     }
 }
