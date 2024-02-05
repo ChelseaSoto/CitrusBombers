@@ -174,5 +174,6 @@ MonoBehaviour:
   knightLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  castPoint: {fileID: 0}
   speed: 2.5
   type: 2

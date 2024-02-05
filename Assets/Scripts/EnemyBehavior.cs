@@ -7,11 +7,12 @@ public class EnemyBehavior : MonoBehaviour
 {   
     public Rigidbody2D rigidbody;
     public Animator animator;
-    public Vector2 movement;
+    public Vector3 movement;
     private Vector2 position;
     public LayerMask knightLayerMask;
+    public Transform castPoint;
 
-    public float speed = 4f;
+    public float speed = 0f;
     private float speedStashed;
     private bool changed = false;
 
@@ -21,31 +22,37 @@ public class EnemyBehavior : MonoBehaviour
         green,
         gold,
     }
-
     public EnemyType type;
 
     private GameManager gms;
 
     void Start()
     {   
+        speed = 0;
         gms = GameObject.Find("GameManager").GetComponent<GameManager>();
         speedStashed = speed;
+
+        movement = Vector3.zero;
 
         NewDirection();
 
         StartCoroutine(ChangeDirectionInterval());
+
     }
 
     void Update()
     {
+        transform.Translate(movement * speed * Time.deltaTime);
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", speed);
-    }
 
-    void FixedUpdate()
-    {
-        rigidbody.MovePosition(rigidbody.position + movement * speed * Time.fixedDeltaTime);
+        if (gameObject.tag == "Red")
+        {
+            CanSeePlayer();
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -68,21 +75,18 @@ public class EnemyBehavior : MonoBehaviour
             givePoints();
             Destroy(gameObject);
         }
-    }
+    }   
+
+
 
     private void SetDirection(int direction)
     {
-        position = rigidbody.position;
-
-        speed = 0;
-        movement = Vector2.zero;
-
-        if (position.x % 1 >= 0.0001f && transform.position.y % 1 >= 0.0001f)
+        if (transform.position.x % 1 >= 0.001f || transform.position.y % 1 >= 0.001f)
         {
             speed = speedStashed;
             return;
         }
-
+        
         changed = true;
 
         switch (direction)
@@ -110,39 +114,49 @@ public class EnemyBehavior : MonoBehaviour
 
     private void NewDirection()
     {   
-        position = rigidbody.position;
+        Vector3 current = transform.position;
 
         if (movement.x == 0)
         {
-            if (CheckAxis(position, Vector2.right))
+            if (CheckAxis(current, Vector3.right))
             {
                 SetDirection(0);
+                return;
             }
-            else if (CheckAxis(position, Vector2.left))
+            else if (CheckAxis(current, Vector3.left))
             {
                 SetDirection(2);
+                return;
             }
         }
         if (movement.y == 0)
         {
             
-            if (CheckAxis(position, Vector2.down))
+            if (CheckAxis(current, Vector3.down))
             {
                 SetDirection(3);
+                return;
             }
-            else if (CheckAxis(position, Vector2.up))
+            else if (CheckAxis(current, Vector3.up))
             {
                 SetDirection(1);
+                return;
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        speed = 0;
+>>>>>>> Stashed changes
     }
 
-    private bool CheckAxis(Vector2 location, Vector2 direction)
+    private bool CheckAxis(Vector3 location, Vector3 direction)
     {   
         location += direction;
 
         if (Physics2D.OverlapBox(location, Vector2.one / 2f, 0f, knightLayerMask))
         {
+            Debug.Log("Obstacle detected at: "+location);
             return false;
         }
         
@@ -157,10 +171,12 @@ public class EnemyBehavior : MonoBehaviour
 
         while (!changed)
         {
-            if(!changed)
+            speed = 0;
+            if(transform.position.x % 1 == 0 || transform.position.y % 1 == 0 )
             {
                 NewDirection();
             }
+            speed = speedStashed;
             yield return new WaitForSeconds(0.4f);
         }
 
@@ -181,5 +197,12 @@ public class EnemyBehavior : MonoBehaviour
                 GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(50);
                 break;
         }
+    }
+
+    private void CanSeePlayer()
+    {
+        bool val = false;
+
+        Vector2 rightView = castPoint.position + Vector3.right * 30;
     }
 }

@@ -21,6 +21,8 @@ public class BombBehavior1: MonoBehaviour
     [Header("Destructible")]
     public Tilemap destructibleTiles;
     public PowerupSpawnBehavior spawnerPrefab;
+    public Tilemap indestructibleTiles;
+    public Tile umbrella;
 
     [Header("UI")]
     public static int score;
@@ -115,10 +117,14 @@ public class BombBehavior1: MonoBehaviour
             explosion.SetDirection(direction);
             explosion.DestroyAfter(explosionDuration);
             Destroy(explosion.gameObject, explosionDuration);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
             Instantiate(spawnerPrefab, position, Quaternion.identity);
             destructibleTiles.SetTile(cell, null);
         }
+
     }
 
     public void AddBomb()
