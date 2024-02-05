@@ -81,50 +81,51 @@ public class EnemyBehavior : MonoBehaviour
     {
         Debug.Log("Current location: "+transform.position.x+", "+transform.position.y);
 
-        if (transform.position.x % 1 >= 0.0001f || transform.position.y % 1 >= 0.0001f)
+        if (Mathf.Abs(transform.position.x) % 1 <= 0.1f && Mathf.Abs(transform.position.y) % 1 <= 0.1f)
         {
-            changed = false;
-            return;
+            Debug.Log("remainder x:" + Mathf.Abs(transform.position.x) % 1 + " Remainder y: " + Mathf.Abs(transform.position.y));
+            transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
+            Debug.Log("Current location: " + transform.position.x + ", " + transform.position.y);
+            Vector3 current = transform.position;
+            Debug.Log("Current location: " + current.x + ", " + current.y);
+
+            if (movement.x == 0)
+            {
+                if (CheckAxis(current, Vector3.right))
+                {
+                    StartCoroutine(SetDirection(0));
+                    Debug.Log("Going right");
+                    return;
+                }
+                else if (CheckAxis(current, Vector3.left))
+                {
+                    StartCoroutine(SetDirection(2));
+                    Debug.Log("Going left");
+                    return;
+                }
+            }
+            if (movement.y == 0)
+            {
+
+                if (CheckAxis(current, Vector3.down))
+                {
+                    StartCoroutine(SetDirection(3));
+                    Debug.Log("Going down");
+                    return;
+                }
+                else if (CheckAxis(current, Vector3.up))
+                {
+                    StartCoroutine(SetDirection(1));
+                    Debug.Log("Going up");
+                    return;
+                }
+            }
         }
 
-        transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
-        Debug.Log("Current location: "+transform.position.x+", "+transform.position.y);
-        Vector3 current = transform.position;
-        Debug.Log("Current location: "+current.x+", "+current.y);
+        changed = false;
+        return;
 
-        if (movement.x == 0)
-        {
-            if (CheckAxis(current, Vector3.right))
-            {
-                StartCoroutine(SetDirection(0));
-                Debug.Log("Going right");
-                return;
-            }
-            else if (CheckAxis(current, Vector3.left))
-            {
-                StartCoroutine(SetDirection(2));
-                Debug.Log("Going left");
-                return;
-            }
-        }
-        if (movement.y == 0)
-        {
-            
-            if (CheckAxis(current, Vector3.down))
-            {
-                StartCoroutine(SetDirection(3));
-                Debug.Log("Going down");
-                return;
-            }
-            else if (CheckAxis(current, Vector3.up))
-            {
-                StartCoroutine(SetDirection(1));
-                Debug.Log("Going up");
-                return;
-            }
-        }
-
-        StartCoroutine(SetDirection(1));  
+        
     }
 
     private bool CheckAxis(Vector3 location, Vector3 direction)
@@ -178,13 +179,14 @@ public class EnemyBehavior : MonoBehaviour
 
         while (!changed)
         {
-            if(transform.position.x % 1 == 0 || transform.position.y % 1 == 0 )
+            if(transform.position.x % 1 == 0 || transform.position.y % 1 == 0)
             {
                 speed = 0;
+                Debug.Log("Stopped moving. checking to round.");
                 NewDirection();
             }
             speed = speedStashed;
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         StartCoroutine(ChangeDirectionInterval());
