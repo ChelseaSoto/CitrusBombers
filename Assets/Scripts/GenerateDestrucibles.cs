@@ -127,7 +127,7 @@ public class GenerateDestrucibles : MonoBehaviour
             for (int y = -6; y < 5; y++)
             {  
                 //Make sure tile isn't start corner or an indestructible 
-                if ((x >= -12 || y <= 2))
+                if ((x >= -11 || y <= 1))
                 {
                     Vector3Int groundPosition = ground.WorldToCell(new Vector3Int(x,y));
                     TileBase groundCheck = ground.GetTile(groundPosition);

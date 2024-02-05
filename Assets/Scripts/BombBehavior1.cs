@@ -10,7 +10,8 @@ public class BombBehavior1: MonoBehaviour
     public GameObject bombPrefab;
     public float fuseTime = 3f;
     public int bombCount = 1;
-    private int bombsRemaining;
+    public int bombsRemaining;
+    public int bombsCurrent;
 
     [Header("Explosion")]
     public ExplosionBehavior explosionPrefab;
@@ -32,13 +33,19 @@ public class BombBehavior1: MonoBehaviour
     private void OnEnable()
     {
         bombsRemaining = bombCount;
+        bombsCurrent = bombsRemaining;
     } 
 
     private void Update()
     {
-        if (bombsRemaining > 0 && Input.GetKeyDown(KeyCode.Space))
+        if (bombsCurrent > 0 && Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(PlaceBomb());
+        }
+
+        if (bombsCurrent > bombsRemaining)
+        {
+            bombsCurrent = bombsRemaining;
         }
     }
 
@@ -49,7 +56,7 @@ public class BombBehavior1: MonoBehaviour
         position.y = Mathf.Round(position.y);
 
         GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
-        bombsRemaining--;
+        bombsCurrent--;
 
         yield return new WaitForSeconds(fuseTime);
 
@@ -68,7 +75,7 @@ public class BombBehavior1: MonoBehaviour
         Explode(position, Vector2.right, explosionRadius);
 
         Destroy(bomb);
-        bombsRemaining++;
+        bombsCurrent++;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -123,6 +130,7 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount++;
         bombsRemaining = bombCount;
+        bombsCurrent = bombCount;
         countTxt.text = string.Format("" + bombCount);
         StartCoroutine(PowerDown(0));
     }
@@ -131,6 +139,7 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount--;
         bombsRemaining = bombCount;
+        bombsCurrent = bombCount;
         countTxt.text = string.Format("" + bombCount);
     }
 
