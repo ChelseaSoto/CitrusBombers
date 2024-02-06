@@ -189,7 +189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62264795
 GameObject:
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7781f89deac4c994ea71f2c3b667bd5b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2be87df2e3f1fd40b67d794396801cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
