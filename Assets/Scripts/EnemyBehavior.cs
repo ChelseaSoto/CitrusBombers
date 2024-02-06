@@ -11,6 +11,7 @@ public class EnemyBehavior : MonoBehaviour
     private Vector2 position;
     public LayerMask knightLayerMask;
     public Transform castPoint;
+    private int chaseDirection;
 
     public float speed = 0f;
     private float speedStashed;
@@ -34,7 +35,6 @@ public class EnemyBehavior : MonoBehaviour
         speed = 0;
         movement = Vector3.zero;
 
-        Debug.Log("Stashed speed: "+speedStashed+" Current speed is: "+speed);
         
         NewDirection();
         StartCoroutine(ChangeDirectionInterval());
@@ -47,12 +47,6 @@ public class EnemyBehavior : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", speed);
-
-        if (gameObject.tag == "Red")
-        {
-            CanSeePlayer();
-
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -79,28 +73,22 @@ public class EnemyBehavior : MonoBehaviour
 
     private void NewDirection()
     {
-        Debug.Log("Current location: "+transform.position.x+", "+transform.position.y);
 
         if (Mathf.Abs(transform.position.x) % 1 <= 0.1f && Mathf.Abs(transform.position.y) % 1 <= 0.1f)
         {
-            Debug.Log("remainder x:" + Mathf.Abs(transform.position.x) % 1 + " Remainder y: " + Mathf.Abs(transform.position.y));
             transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
-            Debug.Log("Current location: " + transform.position.x + ", " + transform.position.y);
             Vector3 current = transform.position;
-            Debug.Log("Current location: " + current.x + ", " + current.y);
 
             if (movement.x == 0)
             {
                 if (CheckAxis(current, Vector3.right))
                 {
                     StartCoroutine(SetDirection(0));
-                    Debug.Log("Going right");
                     return;
                 }
                 else if (CheckAxis(current, Vector3.left))
                 {
                     StartCoroutine(SetDirection(2));
-                    Debug.Log("Going left");
                     return;
                 }
             }
@@ -110,13 +98,11 @@ public class EnemyBehavior : MonoBehaviour
                 if (CheckAxis(current, Vector3.down))
                 {
                     StartCoroutine(SetDirection(3));
-                    Debug.Log("Going down");
                     return;
                 }
                 else if (CheckAxis(current, Vector3.up))
                 {
                     StartCoroutine(SetDirection(1));
-                    Debug.Log("Going up");
                     return;
                 }
             }
@@ -134,7 +120,6 @@ public class EnemyBehavior : MonoBehaviour
 
         if (Physics2D.OverlapBox(location, Vector2.one / 2f, 0f, knightLayerMask))
         {
-            Debug.Log("Obstacle detected at: "+location);
             return false;
         }
         
@@ -145,7 +130,6 @@ public class EnemyBehavior : MonoBehaviour
     {   
         changed = true;
 
-        Debug.Log("Assigning direction");
         switch (direction)
         {
             case 0:
@@ -167,7 +151,6 @@ public class EnemyBehavior : MonoBehaviour
         }
         
         yield return new WaitForSeconds(0.3f);
-        Debug.Log("Moving Now");
         speed = speedStashed;
     }
 
@@ -182,7 +165,6 @@ public class EnemyBehavior : MonoBehaviour
             if(transform.position.x % 1 == 0 || transform.position.y % 1 == 0)
             {
                 speed = 0;
-                Debug.Log("Stopped moving. checking to round.");
                 NewDirection();
             }
             speed = speedStashed;
@@ -206,12 +188,5 @@ public class EnemyBehavior : MonoBehaviour
                 GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(50);
                 break;
         }
-    }
-
-    private void CanSeePlayer()
-    {
-        bool val = false;
-
-        Vector2 rightView = castPoint.position + Vector3.right * 30;
     }
 }

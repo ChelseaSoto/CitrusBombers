@@ -104,7 +104,6 @@ public class GenerateDestrucibles : MonoBehaviour
 
                     if (tile == castle)
                     {
-                        Debug.Log("Castle found at:"+x+" "+y);
                         var Door = Instantiate(doorPrefab, new Vector3(x,y), Quaternion.identity);
                         Door.name = $"Door {x} {y}";
                         count--;
@@ -139,7 +138,6 @@ public class GenerateDestrucibles : MonoBehaviour
                         int random = Random.Range(0,15);
                         if (random == 1 && goldCount > 0)
                         {
-                            Debug.Log("No obstacles at "+x+" "+y);
                             var spawnedEnemy = Instantiate(goldPrefab, new Vector3(x,y), Quaternion.identity);
                             spawnedEnemy.name = $"Enemy Gold {x} {y}";
                             goldCount--;
@@ -149,7 +147,6 @@ public class GenerateDestrucibles : MonoBehaviour
                         {
                             if (random == 2 && greenCount > 0)
                             {
-                                Debug.Log("No obstacles at "+x+" "+y);
                                 var spawnedEnemy = Instantiate(greenPrefab, new Vector3(x,y), Quaternion.identity);
                                 spawnedEnemy.name = $"Enemy Green {x} {y}";
                                 greenCount--;
@@ -160,7 +157,6 @@ public class GenerateDestrucibles : MonoBehaviour
                         {
                             if (random == 3 && redCount > 0)
                             {
-                                Debug.Log("No obstacles at "+x+" "+y);
                                 var spawnedEnemy = Instantiate(redPrefab, new Vector3(x,y), Quaternion.identity);
                                 spawnedEnemy.name = $"Enemy Red {x} {y}";
                                 redCount--;
