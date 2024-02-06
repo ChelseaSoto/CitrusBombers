@@ -130,7 +130,7 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount++;
         bombsRemaining = bombCount;
-        bombsCurrent = bombCount;
+        bombsCurrent++;
         countTxt.text = string.Format("" + bombCount);
         StartCoroutine(PowerDown(0));
     }
@@ -139,7 +139,7 @@ public class BombBehavior1: MonoBehaviour
     {
         bombCount--;
         bombsRemaining = bombCount;
-        bombsCurrent = bombCount;
+        bombsCurrent--;
         countTxt.text = string.Format("" + bombCount);
     }
 

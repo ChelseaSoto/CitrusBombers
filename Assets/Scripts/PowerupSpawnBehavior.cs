@@ -19,10 +19,13 @@ public class PowerupSpawnBehavior : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (spawnableItems.Length > 0 && Random.value < powerupSpawnChance)
+        if (GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true)
         {
-            int random = Random.Range(0, spawnableItems.Length);
-            Instantiate(spawnableItems[random], transform.position, Quaternion.identity);
+            if (spawnableItems.Length > 0 && Random.value < powerupSpawnChance)
+            {
+                int random = Random.Range(0, spawnableItems.Length);
+                Instantiate(spawnableItems[random], transform.position, Quaternion.identity);
+            }
         }
     }
 }

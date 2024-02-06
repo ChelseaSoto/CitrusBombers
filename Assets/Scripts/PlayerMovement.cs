@@ -11,14 +11,13 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public Vector2 movement;
     public float speed = 5f;
+    public static int lives = 3;
 
     [Header("UI")]
-    public static int lives = 3;
     public TextMeshProUGUI livesTxt;
     
     void start()
     {
-        lives = 3;
     }
 
     void Update()
@@ -58,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Damage Dealer"))
         {
             lives--;
+
             if (lives <= 0)
             {
                 lives = 0;
@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GetComponent<BombBehavior1>().enabled = false;
         enabled = false;
+        score = 0;
         
         lives = 0; 
         animator.SetFloat("Horizontal", rigidbody.position.x);
@@ -85,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Dead", true);
+        lives = 3;
 
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);
