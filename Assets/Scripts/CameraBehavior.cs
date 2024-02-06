@@ -6,12 +6,12 @@ public class CameraBehavior : MonoBehaviour
 {
     public Transform player;
 
-    void Start()
+    private void Start()
     {
         player = player.GetComponent<Transform>();
     }
 
-    void Update()
+    private void Update()
     {   
         if (player.position.x >= -8f && player.position.x <= 8f)
         {

@@ -11,6 +11,9 @@ TagManager:
   - Enemy
   - Explosion
   - Green
+  - Center
+  - Middle
+  - End
   layers:
   - Default
   - TransparentFX

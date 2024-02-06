@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EscapeBehavior : MonoBehaviour
 {
-    void Update()
+    private void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))

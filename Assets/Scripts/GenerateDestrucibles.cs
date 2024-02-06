@@ -33,7 +33,7 @@ public class GenerateDestrucibles : MonoBehaviour
     private GameManager gms;
     private int goldCount, greenCount, redCount;
 
-    void Start()
+    private void Start()
     {
 
         gms = GameObject.Find("GameManager").GetComponent<GameManager>();

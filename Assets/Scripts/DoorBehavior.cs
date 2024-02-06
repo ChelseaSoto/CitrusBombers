@@ -5,25 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class DoorBehavior : MonoBehaviour
 {
-    //If all enemies defeated activate trigger to go to next stage or win screen
     private GameManager gms;
     public Collider2D collider;
     int remaining;
+    string name;
 
-    public enum SceneName
+    private void Start()
     {
-        level1,
-        level2,
-    }
-    public SceneName name;
-
-    void Start()
-    {
+        Scene scene = SceneManager.GetActiveScene();
+        name = scene.name;
+        Debug.Log("This is Scene: "+name);
         gms = GameObject.Find("GameManager").GetComponent<GameManager>();
         collider = GetComponent<Collider2D>();
     }
 
-    void Update()
+    private void Update()
     {
         remaining = gms.enemyCount;
         if (remaining == 0)
@@ -32,24 +28,18 @@ public class DoorBehavior : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {   
         
         if(other.tag == "Player")
         {
-           switch(name)
+            if(name == "Level1")
             {
-                case SceneName.level1:
-                    GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(1000);
-                    Debug.Log("Going to level 2");
-                    SceneManager.LoadSceneAsync("level2");
-                    break;
-                
-                case SceneName.level2:
-                    GameObject.Find("Player").GetComponent<BombBehavior1>().AddScore(1000);
-                    Debug.Log("Going to Win Screen");
-                    SceneManager.LoadSceneAsync("Win Screen");
-                    break;
+                SceneManager.LoadSceneAsync("level2");
+            }
+            else if (name == "Level2")
+            {
+                SceneManager.LoadSceneAsync("Win Screen");
             } 
         }
     }

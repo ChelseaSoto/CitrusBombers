@@ -27,7 +27,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private GameManager gms;
 
-    void Start()
+    private void Start()
     {
         speedStashed = speed;
         gms = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -40,7 +40,7 @@ public class EnemyBehavior : MonoBehaviour
         StartCoroutine(ChangeDirectionInterval());
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(movement * speed * Time.deltaTime);
 
@@ -49,7 +49,7 @@ public class EnemyBehavior : MonoBehaviour
         animator.SetFloat("Speed", speed);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {  
         if (other.tag == "Solid")
         {

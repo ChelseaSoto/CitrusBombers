@@ -9,17 +9,16 @@ public class PowerupSpawnBehavior : MonoBehaviour
     [Range (0f, 1f)]
     public float powerupSpawnChance = 0.1f;
     
-    //public int[] spawnLimits = { 2, 3 };
     public GameObject[] spawnableItems;
 
-    void Start()
+    private void Start()
     {
         Destroy(gameObject, destructionTime);
     }
 
     private void OnDestroy()
     {
-        if (GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true)
+        if (PlayerMovement.lives > 0)
         {
             if (spawnableItems.Length > 0 && Random.value < powerupSpawnChance)
             {

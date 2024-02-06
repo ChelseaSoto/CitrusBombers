@@ -15,12 +15,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("UI")]
     public TextMeshProUGUI livesTxt;
+
+    private bool isHit;
     
-    void start()
+    private void OnEnable()
     {
+        livesTxt.text = string.Format("" + lives);
     }
 
-    void Update()
+    private void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + movement * speed * Time.fixedDeltaTime);
     }
@@ -56,7 +59,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Damage Dealer"))
         {
-            lives--;
+
+            if(other.tag == "Explosion")
+            {
+                Debug.Log("solve overlap");
+                OverlapAvoid();
+            }
+            else
+            {
+                lives--;
+            }
 
             if (lives <= 0)
             {
@@ -76,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     {
         GetComponent<BombBehavior1>().enabled = false;
         enabled = false;
-        score = 0;
+        BombBehavior1.score = 0;
         
         lives = 0; 
         animator.SetFloat("Horizontal", rigidbody.position.x);
@@ -91,5 +103,21 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);
         GameObject.Find("GameManager").GetComponent<GameManager>().CheckLoseState();
+    }
+
+    public void OverlapAvoid()
+    {
+        if(!isHit)
+        {
+            isHit = true;
+            lives--;
+            StartCoroutine(Cooldown());
+        }
+    }
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(1.1f);
+        isHit = false;
     }
 }

@@ -6,7 +6,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
     public int enemyCount;
     public bool timerOn;
 
@@ -15,15 +14,16 @@ public class GameManager : MonoBehaviour
     public static float timeRemaining;
     public TextMeshProUGUI timerTxt;
 
-    void Start()
+    private void Start()
     {
+
         enemyCount = 1;
         timerOn = true;
         timeRemaining = 300f;
 
     }
 
-    void Update()
+    private void Update()
     {
         if (timerOn)
         {
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void updateTimer(float currentTime)
+    private void updateTimer(float currentTime)
     {
         currentTime += 1;
 

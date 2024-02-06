@@ -10,8 +10,8 @@ public class BombBehavior1: MonoBehaviour
     public GameObject bombPrefab;
     public float fuseTime = 3f;
     public int bombCount = 1;
-    public int bombsRemaining;
-    public int bombsCurrent;
+    private int bombsRemaining;
+    private int bombsCurrent;
 
     [Header("Explosion")]
     public ExplosionBehavior explosionPrefab;
@@ -35,6 +35,13 @@ public class BombBehavior1: MonoBehaviour
         bombsRemaining = bombCount;
         bombsCurrent = bombsRemaining;
     } 
+
+    private void Start()
+    {
+        scoreTxt.text = string.Format("" + score);
+        rangeTxt.text = string.Format("" + explosionRadius);
+        countTxt.text = string.Format("" + bombCount);
+    }
 
     private void Update()
     {
