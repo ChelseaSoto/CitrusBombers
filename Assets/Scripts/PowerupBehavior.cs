@@ -31,6 +31,7 @@ public class PowerupBehavior : MonoBehaviour
         {
             OnPowerupPickup(other.gameObject);
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("Pickup");
         }
     }
 }
