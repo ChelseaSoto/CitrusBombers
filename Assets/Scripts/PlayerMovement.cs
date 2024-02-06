@@ -69,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 StartCoroutine(DeathSequence());
             }
+
+            FindObjectOfType<AudioManager>().Play("PlayerDamage");
+
         }
     }
 

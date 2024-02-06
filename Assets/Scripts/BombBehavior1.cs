@@ -39,6 +39,7 @@ public class BombBehavior1: MonoBehaviour
         if (bombsRemaining > 0 && Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(PlaceBomb());
+            FindObjectOfType<AudioManager>().Play("BombPlace");
         }
     }
 
@@ -100,6 +101,8 @@ public class BombBehavior1: MonoBehaviour
         Destroy(explosion.gameObject, explosionDuration);
 
         Explode(position, direction, length - 1);
+
+        FindObjectOfType<AudioManager>().Play("BombExplode");
     }
 
     private void clearDestructible(Vector2 position, Vector2 direction)
