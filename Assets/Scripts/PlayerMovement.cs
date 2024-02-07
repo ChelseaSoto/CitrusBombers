@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("Dead", true);
-        lives = 3;
+        lives = 5;
 
         yield return new WaitForSeconds(1.2f);
         gameObject.SetActive(false);
