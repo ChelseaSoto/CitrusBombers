@@ -9,6 +9,6 @@ public class GetScore : MonoBehaviour
 
     void Start()
     {
-        scoreTxt.text = string.Format("Score: " + BombBehavior1.score); 
+        scoreTxt.text = string.Format("" + BombBehavior1.score); 
     }
 }
