@@ -27,7 +27,7 @@ GPGroupProject1_TeamCitrusBombers folder<br />
 
 -------------------------------------------
 
-##HOW TO PLAY:<br />
+## HOW TO PLAY:<br />
 
 - Arrow Keys / WASD - Movement / Menu navigation<br />
 - Space - Place citrobomb / Select menu option<br />
@@ -46,7 +46,7 @@ citrobomb capacity.<br />
 
 -------------------------------------------
 
-##RELEASE NOTES: <br />
+## RELEASE NOTES: <br />
 
 v1.0.0 02-06-2024<br />
 First release<br />
