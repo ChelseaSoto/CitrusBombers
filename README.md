@@ -49,6 +49,12 @@ citrobomb capacity.<br />
 ## RELEASE NOTES: <br />
 
 v1.0.0 02-06-2024<br />
-First release<br />
+- first release<br />
+
+v1.0.1 02-06-2024<br />
+- fixed score at the end
+- fixed lives reset after death and added delay so it doesn't update before scene change
+- fixed door to be under sandcastles
+
 
 -------------------------------------------
