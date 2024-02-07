@@ -1,36 +1,38 @@
-Game Name: CitrusPOP! based on Bomberman
-Group Name: Citrusbombers
-Members:
-	Aidan Earnest - Programmer
-	Chaerin Kim - Artist
-	Kyle Leedy - Designer
-	Chelsea Soto - Designer
+# CitrusPOP!
+Game based on Bomberman <br />
+Group Name: Citrusbombers<br />
 
-Itch.io page: https://citrus-bombers.itch.io/citrus-pop
-Github repository: https://github.com/ChelseaSoto/CitrusBombers
+Members:<br />
+* Aidan Earnest - Programmer<br />
+* Chaerin Kim - Artist<br />
+* Kyle Leedy - Designer<br />
+* Chelsea Soto - Designer<br />
 
--------------------------------------------
-
-WHAT IS IN EACH FOLDER:
-
-GPGroupProject1_TeamCitrusBombers folder
-	Documents
-		Bomberman Game Document.pdf
-		CitrusPOP! Concept Art.pdf
-		CitrusPOP! Wireframes.pdf
-	Build
-		CitrusPOP!.exe
-		CitrusPOP!_data
-	readme.txt
+Itch.io page: https://citrus-bombers.itch.io/citrus-pop <br />
+Github repository: https://github.com/ChelseaSoto/CitrusBombers <br />
 
 -------------------------------------------
 
-HOW TO PLAY:
+## WHAT IS IN EACH FOLDER:<br />
 
-Arrow Keys / WASD - Movement / Menu navigation
-Space - Place citrobomb / Select menu option
-P - Pause
-Esc Key - Quit Game
+GPGroupProject1_TeamCitrusBombers folder<br />
+- Documents
+ 	- Bomberman Game Document.pdf
+   	- CitrusPOP! Concept Art.pdf
+	- CitrusPOP! Wireframes.pdf
+- Build<br />
+	- CitrusPOP!.exe<br />
+	- CitrusPOP!_data<br />
+- readme.txt<br />
+
+-------------------------------------------
+
+HOW TO PLAY:<br />
+
+- Arrow Keys / WASD - Movement / Menu navigation<br />
+- Space - Place citrobomb / Select menu option<br />
+- P - Pause<br />
+- Esc Key - Quit Game<br />
 
 The goal is to locate the hidden exit that is discovered 
 by destroying one of the many sandcastles found throughout 
@@ -40,13 +42,13 @@ citrobombs and quickly evading the explosion that follows.
 Be sure to collect any ducklings that appear; these provide 
 temporary powerups! Pink ducklings extend the citrobomb's 
 explosive range while yellow ducklings expand active 
-citrobomb capacity.
+citrobomb capacity.<br />
 
 -------------------------------------------
 
-RELEASE NOTES: 
+RELEASE NOTES: <br />
 
-v1.0.0 02-06-2024
-First release
+v1.0.0 02-06-2024<br />
+First release<br />
 
 -------------------------------------------
