@@ -16,6 +16,7 @@ public class ChangeScenes : MonoBehaviour
 
     public void Title(){
         StartCoroutine(PlayAndLoad(0));
+        StartCoroutine(DelayedResume());
     }
 
     public void Controls(){
@@ -46,5 +47,11 @@ public class ChangeScenes : MonoBehaviour
         if (buttonClickSound != null){
             buttonClickSound.Play();
         }
+    }
+
+    private IEnumerator DelayedResume()
+    {
+        yield return new WaitForSecondsRealtime(buttonClickSound.clip.length);
+        GetComponent<PauseMenu>().Resume();
     }
 }

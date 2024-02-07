@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public Vector2 movement;
     public float speed = 5f;
-    public static int lives = 3;
+    public static int lives = 5;
 
     [Header("UI")]
     public TextMeshProUGUI livesTxt;

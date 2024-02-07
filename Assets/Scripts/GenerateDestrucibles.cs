@@ -64,12 +64,10 @@ public class GenerateDestrucibles : MonoBehaviour
 
     private void BuildBoard()
     {
-        //For each tile on game board
         for (int x = -14; x < 15; x++)
         {
             for (int y = -6; y < 5; y++)
-            {  
-                //Make sure tile isn't start corner or an indestructible 
+            { 
                 if ((x >= -12 || y <= 2))
                 {
                     Vector3Int position = ground.WorldToCell(new Vector3Int(x,y));
@@ -120,12 +118,10 @@ public class GenerateDestrucibles : MonoBehaviour
 
     private void SpawnEnemyType()
     {
-        //For each tile on game board
         for (int x = -14; x < 15; x++)
         {
             for (int y = -6; y < 5; y++)
             {  
-                //Make sure tile isn't start corner or an indestructible 
                 if ((x >= -11 || y <= 1))
                 {
                     Vector3Int groundPosition = ground.WorldToCell(new Vector3Int(x,y));

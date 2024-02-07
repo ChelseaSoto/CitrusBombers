@@ -14,7 +14,6 @@ public class DoorBehavior : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         name = scene.name;
-        Debug.Log("This is Scene: "+name);
         gms = GameObject.Find("GameManager").GetComponent<GameManager>();
         collider = GetComponent<Collider2D>();
     }
