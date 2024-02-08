@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerupBehavior : MonoBehaviour
 {
+
     public enum PowerupType
     {
         ExtraOrange,
@@ -29,6 +30,7 @@ public class PowerupBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PowerupNotification.firstPickup++;
             OnPowerupPickup(other.gameObject);
             Destroy(gameObject);
             FindObjectOfType<AudioManager>().Play("Pickup");
